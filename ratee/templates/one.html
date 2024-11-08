@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/bootstrab/all.min.css">
+    <link rel="stylesheet" href="../static/bootstrab/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/bootstrab/bootstrap.min.css.map">
+    <link rel="stylesheet" href="../static/bootstrab/inx.css">
+    <title>Document</title>
+    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <style>
+        #ha {
+            height: 300px;
+            width: 400px;
+            }
+    </style>
+</head>
+<body>
+{% block kk %}
+<div class="cont m-5 bg-light w-75 ">
+    <div class="hed d-flex justify-content-around p-2">
+        <h4 class="text-success">pyhton : {{ np }}</h4>
+        <h4 class="text-success">js script :  {{ nj }}</h4>
+        <h4 class="text-success">C# : {{ nc }}</h4>
+    </div>
+    <div class="top p-2">
+        <!-- <div class="python border m-2 p-1">
+        {% for x in pyy %}
+        <div class="one m-2 p-2 border-boreder bg-light w-25 d-flex justify-content-between border ">
+            <h4> {{ x }} </h4> 
+            <h5> {{ x.ans }} </h5>
+        </div>
+        {% endfor %}
+        </div>
+
+        <div class="CC border m-2 p-1">
+            {% for x in c %}
+            <div class="one m-2 p-2 border-boreder bg-light w-25 d-flex justify-content-between border ">
+                <h4> {{ x }} </h4> 
+                <h5> {{ x.ans }} </h5>
+            </div>
+            {% endfor %}
+            </div>
+
+            <div class="js border m-2 p-1">
+                {% for s in js %}
+                <div class="one m-2 p-2 border-boreder bg-light w-25 d-flex justify-content-between border ">
+                    <h4> {{ s.namee }} </h4> 
+                    <h5> {{ s.ans }} </h5>
+                </div>
+                {% endfor %}
+                </div> -->
+        <a href="http://127.0.0.1:8000/home/vot/" class=""><button class="button add m-2 w-50 text-light bg-success">vot now</button></a>
+    </div>
+
+    <div id="ha"></div>
+</div>
+<script>
+    var Language = {{ la|safe }}
+    var votes = {{ ress|safe }}
+
+var charData = {
+    'type':'bar', 
+    'scale-x':{
+        'values': Language
+    },'scale-y':{
+        'values':'0:20:2',
+        'lable':{
+            'text':'votes'
+        }
+    }
+    ,'series':[
+        {'values': votes}
+    ]
+}
+    zingchart.render({
+        id: 'ha',
+        data: charData,
+        height: '100%',
+        width: '100%'
+    });
+</script>
+{% endblock kk %}
+
+</body>
+</html>

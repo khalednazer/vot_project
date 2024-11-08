@@ -1,0 +1,27 @@
+{% extends 'one.html' %}
+{% load static %}
+{% block kk %}
+<body class="bg-dark " >
+<div class="d-flex flex-wrap bg-info w-50 text-align-center h-vh voot" style="transform: translate(50%, 50%);" >
+    <h2 class="ms-5 p-2" >Welcome to the voting page </h2>
+    <form action="" method="POST" class="d-flex flex-wrap p-3  ">
+        {% csrf_token %}
+        <div class="col-11 p-2 bg-light rounded ">
+            <label class="col-5" for="">enter your name :</label>
+            <input class="col-5" type="text" name="namee">
+        </div>
+
+        <div class="col-11 p-2 bg-light rounded mt-2">
+            <label for="5" class="me-5">chose you Language :</label>
+            <select name="ans" id="" class="col-5 ">
+                <option value="js">js</option>
+                <option value="python">python</option>
+                <option value="C">C</option>
+            </select>
+        </div>
+
+        <input type="submit" name="" id="" value="send" class="col-11 mt-3">
+    </form>
+</div>
+</body>
+{% endblock kk %}

@@ -1,0 +1,7 @@
+__pycache__/
+migrations/
+static
+!bootstrab
+db.sqlite3
+manage.py
+tt.txt
